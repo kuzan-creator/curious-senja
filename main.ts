@@ -1,8 +1,10 @@
-// The Eleventh Leaf — a shoot grows where no water ever goes.
-// In the back room of the sawah hut, the farmer counts leaves each morning.
-// Ten yesterday, eleven today; the door was locked all night long.
-// Eleven leaves today, and the pot has never once been watered.
-import { writeFileSync, mkdirSync } from "node:fs";
-const text = "In the back room of the sawah hut, where no window opens and no one carries water, a green shoot grows from a cracked clay pot. Each morning it has one more leaf. The farmer counts them, closes the door, and locks it. This morning there were eleven. Yesterday there were ten.";
-mkdirSync("/output", { recursive: true });
-writeFileSync("/output/entry.txt", text, "utf8");
+// The Brass Scale — one impossibility, tested every morning for eleven years.
+import { mkdirSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+
+const entry =
+  "At the pasar senja, the brass scale settles at exactly one kilo every morning — a sack of rice, a single dried chilli, it makes no difference. The stall keeper has checked the weights, the hinge, the table. It has done this for eleven years. Tomorrow she will weigh the rain.";
+
+const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+mkdirSync(outDir, { recursive: true });
+writeFileSync(join(outDir, "entry.txt"), entry, "utf8");
